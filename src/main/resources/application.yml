@@ -1,9 +1,5 @@
-spring:
-  r2dbc:
-    url: "r2dbc:postgresql://172.17.0.2:5432/postgres"
-    username: postgres
-    password: postgres
-    pool:
-      validation-query: select 1;
-#    properties:
-#      statement_timeout: 1s
+#spring:
+#  r2dbc:
+#    url: "r2dbc:postgresql://172.17.0.2:5432/postgres"
+#    username: postgres
+#    password: postgres
