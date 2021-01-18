@@ -3,5 +3,7 @@ spring:
     url: "r2dbc:postgresql://172.17.0.2:5432/postgres"
     username: postgres
     password: postgres
-    properties:
-      statement_timeout: 500
+    pool:
+      validation-query: select 1;
+#    properties:
+#      statement_timeout: 1s

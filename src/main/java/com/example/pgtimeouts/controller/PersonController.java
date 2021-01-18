@@ -1,5 +1,7 @@
 package com.example.pgtimeouts.controller;
 
+import java.time.Duration;
+
 import com.example.pgtimeouts.domain.Person;
 import com.example.pgtimeouts.repository.PersonRepository;
 import lombok.AllArgsConstructor;
@@ -19,6 +21,12 @@ public class PersonController {
 	@GetMapping("/{id}")
 	@Transactional(timeout = 1)
 	Mono<Person> getPerson(@PathVariable Integer id) {
-		return  personRepository.findSlow(id);
+		return  personRepository.findSlow(id).timeout(Duration.ofSeconds(5));
+	}
+
+	@GetMapping("/quick/{id}")
+	@Transactional(timeout = 1)
+	Mono<Person> getPersonQuick(@PathVariable Integer id) {
+		return  personRepository.findById(id).timeout(Duration.ofSeconds(5));
 	}
 }

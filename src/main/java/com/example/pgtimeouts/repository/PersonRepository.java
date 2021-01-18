@@ -8,6 +8,8 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 public interface PersonRepository extends ReactiveCrudRepository<Person, Integer> {
 
-	@Query("SELECT * FROM person, pg_sleep(5) where id = :id")
+	@Query("SELECT * FROM person, pg_sleep(60) where id = :id")
 	Mono<Person> findSlow(Integer id);
+
+	Mono<Person> findById(Integer id);
 }
