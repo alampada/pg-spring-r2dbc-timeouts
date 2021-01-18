@@ -4,4 +4,4 @@ spring:
     username: postgres
     password: postgres
     properties:
-      statement_timeout: 500ms
+      statement_timeout: 500
