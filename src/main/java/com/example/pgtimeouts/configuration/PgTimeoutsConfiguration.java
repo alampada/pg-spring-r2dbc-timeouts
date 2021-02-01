@@ -17,18 +17,18 @@ import static io.r2dbc.spi.ConnectionFactoryOptions.HOST;
 import static io.r2dbc.spi.ConnectionFactoryOptions.PASSWORD;
 import static io.r2dbc.spi.ConnectionFactoryOptions.USER;
 
-@Configuration
+//@Configuration
 public class PgTimeoutsConfiguration extends AbstractR2dbcConfiguration {
 
 	@Override
-	@Bean
+//	@Bean
 	public ConnectionFactory connectionFactory() {
 		return  ConnectionFactories.get(ConnectionFactoryOptions.builder()
 				.option(DRIVER, "postgresql")
 				.option(HOST, "172.17.0.2")
 				.option(USER, "postgres")
 				.option(PASSWORD, "postgres")
-				.option(Option.valueOf("options"), Map.of("statement_timeout", "1000"))
+//				.option(Option.valueOf("options"), Map.of("statement_timeout", "1000"))
 				.build());
 	}
 }
